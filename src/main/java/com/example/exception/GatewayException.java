@@ -1,11 +1,9 @@
 package com.example.exception;
 
-import java.util.NoSuchElementException;
+import java.net.NoRouteToHostException;
 
-import org.hibernate.HibernateException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -19,5 +17,8 @@ public class GatewayException extends ResponseEntityExceptionHandler{
 //	public ResponseEntity<Object> hibernateException(HibernateException hibernateException){
 //		return new ResponseEntity<Object>("Data Base Connection lost", HttpStatus.BAD_REQUEST);
 //	}
-	
+	@ExceptionHandler(NoRouteToHostException.class)
+	public ResponseEntity<Object> noRouteToHostException(NoRouteToHostException noRouteToHostException){
+		return new ResponseEntity<Object>("Data Base Connection lost", HttpStatus.BAD_REQUEST);
+	}
 }

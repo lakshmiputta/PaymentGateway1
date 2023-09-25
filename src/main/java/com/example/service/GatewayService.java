@@ -90,7 +90,7 @@ public class GatewayService {
 	 
 	 public void validate(Merchant merchant)
 	 {
-		 if(merchant.getMerchantId()==null||merchant.getmerchantName()==null)
+		 if(merchant.getMerchantId()==null||merchant.getmerchantName()==null||merchant.getEmail()==null||merchant.getAddress()==null||merchant.getBusiness()==null)
 		 {
 			 throw new EmptyInputException("Input fields should not be empty");
 		 }
