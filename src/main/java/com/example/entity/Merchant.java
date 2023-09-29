@@ -1,31 +1,40 @@
 package com.example.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-@Entity(name="merchant")
+
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class Merchant {
-	@Id
-	@Column(name="merchantid")
-	private String merchantId;
-	@Column(name="name")
-	private String merchantName;
-	@Column(name="email")
-	private String email;
-	@Column(name="business")
-	private String business;
-	@Column(name="address")
-	private String address;
-	@Column(name="phone")
-	private int phone;
 	
+	 @NotBlank(message = " MerchantId is mandatory")
+	private String merchantId;
+	
+	 @NotBlank(message = " MerchantName should not be null")
+	private String merchantName;
+	
+@Email(message = "Email Format is not correct")
+	private String email;
+	
+	 @NotBlank(message = " Business is mandatory")
+	private String business;
+	
+	 @NotBlank(message = " Address is mandatory")
+	private String address;	
+
+	
+	 @NotBlank(message = " Phone is mandatory")
+	private String phone;
+	
+	 
 	public Merchant() {
 		super();
 	}
-	public Merchant(String merchantId, String name, String email, String business, String address, int phone) {
+	public Merchant(String merchantId, String merchantName, String email, String business, String address, String phone) {
 		super();
 		this.merchantId = merchantId;
-		this.merchantName = name;
+		this.merchantName = merchantName;
 		this.email = email;
 		this.business = business;
 		this.address = address;
@@ -40,8 +49,8 @@ public class Merchant {
 	public String getmerchantName() {
 		return merchantName;
 	}
-	public void setName(String name) {
-		this.merchantName = name;
+	public void setName(String merchantName) {
+		this.merchantName = merchantName;
 	}
 	public String getEmail() {
 		return email;
@@ -61,10 +70,10 @@ public class Merchant {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

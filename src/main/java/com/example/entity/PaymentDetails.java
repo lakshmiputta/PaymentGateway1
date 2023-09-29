@@ -1,32 +1,30 @@
 package com.example.entity;
 
+import jakarta.validation.constraints.NotBlank;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-@Entity(name="payment")
 public class PaymentDetails {
 
-	@Id
-	private String payId;
-	
-	@Column(name="merchantid")
+	 @NotBlank(message = " httpMessage:MerchantId is mandatory")
 	private String merchantId;
 	
-	@Column(name="payment_amount")
-	private int amount;
+	 @NotBlank(message = "Amount is mandatory")
+	private String amount;
 	
-	@Column(name="currency_mode")
+	 @NotBlank(message = "Currency is mandatory")
 	private String currency;
 	
-	@Column(name = "order_id")
-	private int orderId;
+	 @NotBlank(message = "OrderId is mandatory")
+	private String orderId;
 	
-	@Column(name = "payment_status")
+	private String payId;
+	 
 	private String paymentStatus;
 
+
+
 	
 
+	
 	public String getMerchantId() {
 		return merchantId;
 	}
@@ -35,11 +33,11 @@ public class PaymentDetails {
 		this.merchantId = merchantId;
 	}
 
-	public int getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
@@ -51,11 +49,11 @@ public class PaymentDetails {
 		this.currency = currency;
 	}
 
-	public int getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 
@@ -75,9 +73,6 @@ public class PaymentDetails {
 		this.paymentStatus = paymentStatus;
 	}
 
-	public PaymentDetails get() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
